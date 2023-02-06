@@ -1,0 +1,13 @@
+:root {
+    --primary-color: #456;
+    --secondary-color: steelblue;
+
+}
+
+body {
+    color: var(--primary-color, gray);
+}
+
+div {
+    color: var(--secondary-color, darkblue);
+}
