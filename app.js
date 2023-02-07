@@ -21,16 +21,17 @@ let frameCount = 0;
 
 function wave() {
     frameCount++;
-    if (frameCount < 15) {
+    if (frameCount < 14) {
         window.requestAnimationFrame(wave);
         return;
     }
     frameCount = 0;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawFrame(0, cycleLoop[currentLoopIndex], 0, 0);
+    drawFrame(0, cycleLoop[currentLoopIndex], 0, 90);
     currentLoopIndex++;
     if (currentLoopIndex >= cycleLoop.length) {
-        currentLoopIndex = 0;
+        // currentLoopIndex = 0;
+        drawFrame(0, 0, 0, 90)
     }
     window.requestAnimationFrame(wave);
 }

@@ -1,26 +1,143 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* End Meyer Reset CSS */
+
+
+
 :root {
     --primary-color: #456;
-    --secondary-color: steelblue;
+    --secondary-color: rgb(22, 43, 59);
+    --font-family: 'Varela Round', sans-serif;
+}
 
+html {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
+    height: 100%;
     color: var(--primary-color, gray);
+    display: block;
+    margin: 0;
+    padding: 0;
 }
 
 .main {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 3rem;
+    /* width: 1000px; */
+    /* height: auto; */
+    padding: 10px;
+    border-radius: 100px;
+    box-shadow: 0 0 12px -2px rgb(22, 43, 59);
     display: flex;
-    flex-flow: column wrap;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .left {
     border-color: var(--secondary-color, darkblue);
+    /* background-color: #456; */
+    display: flex;
+    flex: 1;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 canvas {
-    border: 1px solid black;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
+    position: relative;
+}
+
+.right {
+    padding-left: 15px;
+    padding-right: 15px;
+    flex: 1;
+    padding-top: 20px;
+}
+
+legend {
+    font-weight: bold;
+    font-size: large;
+}
+
+form {
+    line-height: 1.8;
+    font-family: var(--font-family);
+}
+
+input:invalid {
+    border-color: darkorange;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: whitesmoke;
+    text-align: center;
+    font-family: var(--font-family);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 0 12px -2px rgb(22, 43, 59);
+    margin-bottom: 10px;
 }
