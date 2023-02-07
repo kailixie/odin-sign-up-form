@@ -8,6 +8,19 @@ body {
     color: var(--primary-color, gray);
 }
 
-div {
-    color: var(--secondary-color, darkblue);
+.main {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.left {
+    border-color: var(--secondary-color, darkblue);
+}
+
+canvas {
+    border: 1px solid black;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }

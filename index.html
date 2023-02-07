@@ -13,10 +13,63 @@
 
 <body>
 
-    <h1>THIS IS A HEADING!</h1>
+    <div class="main">
+        
+        <div class="left">
+            <canvas width="1000" height="180">
 
-    <div>And this is text</div>
+            </canvas>
 
+        </div>
+        
+
+        <form action="" method="post">
+            <fieldset class="signup">
+                <legend>Let's Get This Bread</legend>
+            
+            <label for="bread_choice">Select Base:</label>
+            <select name="bread_choice">
+                <option value="rye"> Rye </option>
+                <option value="cinnamon"> Cinnamon Swirl </option>
+                <option value="white"> White </option>
+                <option value="wheat"> Whole Wheat </option>
+                <option value="banana"> Banana </option>
+            </select>
+
+            <div class="username">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="oakyfly" required>
+            </div>
+
+            <div class="birthday">
+                <label for="birthday">Birthday:</label>
+                <input type="date" id="birthday" name="birthday" required>
+            </div>
+
+            <div class="email">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="tasty@bread.co" required>
+
+            </div>
+ 
+            <div class="password">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="" required>
+            </div>
+
+            <div class="password">
+                <label for="confirm_password">Confirm password:</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="" required>
+            </div>
+
+            <button type="submit">Create Sandwich</button>
+
+            </fieldset>
+        </form>
+
+    </div>
+
+    
 
 </body>
 
