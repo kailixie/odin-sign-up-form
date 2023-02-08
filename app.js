@@ -27,12 +27,12 @@ function wave() {
         return;
     }
     frameCount = 0;
-    ctx.clearRect(0, 140, 160, 150);
-    drawFrame(0, cycleLoop[currentLoopIndex], 0, 140);
+    ctx.clearRect(0, 140, 160, 180);
+    drawFrame(0, cycleLoop[currentLoopIndex], 0, 170);
     currentLoopIndex++;
     if (currentLoopIndex >= cycleLoop.length) {
         // currentLoopIndex = 0;
-        drawFrame(0, 0, 0, 140)
+        drawFrame(0, 0, 0, 170)
     }
     window.requestAnimationFrame(wave);
 }
@@ -42,6 +42,7 @@ function init() {
 };
 
 ctx.font = '25px VT323';
+ctx.textAlign = 'center';
 ctx.fillStyle = 'black';
 
 const introTextOne = ['Welcome!'];
@@ -62,7 +63,7 @@ const speech = async () => {
         await sleep(1700);
         ctx.clearRect(100, 50, 270, 110);
         for (let b = 0; b<introTextLoop[i].length; b++) {
-            ctx.fillText(introTextLoop[i][b], 180, 100 + (b*lineHeight));
+            ctx.fillText(introTextLoop[i][b], 230, 100 + (b*lineHeight));
         } 
     }
 }
