@@ -54,7 +54,8 @@ table {
 :root {
     --primary-color: #456;
     --secondary-color: rgb(22, 43, 59);
-    --font-family: 'Varela Round', sans-serif;
+    --main-font: 'Varela Round', sans-serif;
+    --speech-font: 'VT323', monospace;
 }
 
 html {
@@ -74,10 +75,10 @@ body {
 }
 
 .main {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
     margin-top: 3rem;
-    /* width: 1000px; */
+    width: 1000px;
     /* height: auto; */
     padding: 10px;
     border-radius: 100px;
@@ -99,6 +100,7 @@ body {
 }
 
 canvas {
+    border: 1px solid black;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
@@ -110,7 +112,7 @@ canvas {
     padding-left: 15px;
     padding-right: 15px;
     flex: 1;
-    padding-top: 20px;
+    /* padding-top: 20px; */
 }
 
 legend {
@@ -120,7 +122,7 @@ legend {
 
 form {
     line-height: 1.8;
-    font-family: var(--font-family);
+    font-family: var(--main-family);
 }
 
 input:invalid {
@@ -131,7 +133,7 @@ footer {
     background-color: var(--secondary-color);
     color: whitesmoke;
     text-align: center;
-    font-family: var(--font-family);
+    font-family: var(--main-family);
     padding-top: 10px;
     padding-bottom: 10px;
     position: fixed;

@@ -4,6 +4,7 @@ let img = new Image();
 img.src = 'img/panda-sprite.png';
 img.onload = function() {
     init();
+    speech();
 };
 
 let canvas = document.querySelector('canvas');
@@ -26,12 +27,12 @@ function wave() {
         return;
     }
     frameCount = 0;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawFrame(0, cycleLoop[currentLoopIndex], 0, 90);
+    ctx.clearRect(0, 140, 160, 150);
+    drawFrame(0, cycleLoop[currentLoopIndex], 0, 140);
     currentLoopIndex++;
     if (currentLoopIndex >= cycleLoop.length) {
         // currentLoopIndex = 0;
-        drawFrame(0, 0, 0, 90)
+        drawFrame(0, 0, 0, 140)
     }
     window.requestAnimationFrame(wave);
 }
@@ -39,3 +40,29 @@ function wave() {
 function init() {
     window.requestAnimationFrame(wave);
 };
+
+ctx.font = '25px VT323';
+ctx.fillStyle = 'black';
+
+const introTextOne = ['Welcome!'];
+const introTextTwo = ['*stomach grumbles*']
+const introTextThree = ["Sorry about that...",  "I just woke up and", "I'm SO hungry!"];
+const introTextFour = ["Hurry and sign up", "so I can make us", "something to eat!"];
+
+const introTextLoop = [introTextOne, introTextTwo, introTextThree, introTextFour];
+
+const sleep = time => {
+    return new Promise(resolve => setTimeout(resolve, time))
+}
+
+
+const speech = async () => {
+    let lineHeight = 20;
+    for (let i = 0; i < introTextLoop.length; i++) {
+        await sleep(1700);
+        ctx.clearRect(100, 50, 270, 110);
+        for (let b = 0; b<introTextLoop[i].length; b++) {
+            ctx.fillText(introTextLoop[i][b], 180, 100 + (b*lineHeight));
+        } 
+    }
+}
