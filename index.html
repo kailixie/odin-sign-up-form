@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&family=VT323&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,73 +19,99 @@
     <div class="main">
         
         <div class="left">
-            <canvas width="400" height="360"></canvas>
-            <img class="kitchen" src="img/kitchen-pink-bg.png" alt="red panda in a kitchen" width="400" height="360">
+            <div class="kitchen">
+                <canvas width="400" height="360"></canvas>
+                <img class="kitchen-bg" src="img/turkey-kitchen.png" alt="red panda in a kitchen">
+            </div>
+
+            <div class="logIn">
+                <p>Already have an account? <span><a href="https://www.youtube.com/watch?v=XdM6c4juY1g">Log in...</a></span></p>
+            </div>
         </div>
         
         <div class="right">
             <form action="#" method="post">
-                <fieldset class="signup">
-                    <legend>Let's Get This Bread</legend>
+                <div class="form-row header">
+                    <p id="formTitle">SIGN UP FOR TASTY TIMES!</p>
+                </div>
+                <div class="form-row">
+                    <label for="bread_choice">Select Bread:</label>
+                    <select name="bread_choice">
+                        <option value="rye"> Rye </option>
+                        <option value="cinnamon"> Cinnamon Swirl </option>
+                        <option value="white"> White </option>
+                        <option value="wheat"> Whole Wheat </option>
+                        <option value="banana"> Banana </option>
+                    </select>
+                </div>
                 
-                <label for="bread_choice">Select Base:</label>
-                <select name="bread_choice">
-                    <option value="rye"> Rye </option>
-                    <option value="cinnamon"> Cinnamon Swirl </option>
-                    <option value="white"> White </option>
-                    <option value="wheat"> Whole Wheat </option>
-                    <option value="banana"> Banana </option>
-                </select>
-
-                <div class="username">
+                <div class="form-row">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" placeholder="sandwichthief*" required>
                 </div>
 
-                <div class="birthday">
+                <div class="form-row">
                     <label for="birthday">Birthday:</label>
                     <input type="date" id="birthday" name="birthday" required>
                 </div>
 
-                <div class="email">
+                <div class="form-row">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="tasty@bread.co" required>
+                    <input type="email" id="email" name="email" placeholder="tasty@bread.com" required>
 
                 </div>
     
-                <div class="password">
+                <div class="form-row passwordRow">
                     <label for="password">Password:</label>
-                    <input class="error" type="password" id="password" name="password" placeholder="8-20 characters*" minlength="8" maxlength="20" required>
+                    <input class="invalid" type="password" id="password" name="password" placeholder="8-20 characters*" pattern="(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8, 16}" onkeyup=getPassword() required>
+
                 </div>
 
-                <div class="password">
+                <div class="form-row" id="passwordMessage">
+                    <ul id="passwordRequires">Password must contain:
+                        <li id="pwLength" class="invalid">8 to 16 characters</li>
+                        <li id="pwCapital" class="invalid">Capital (uppercase) letter</li>
+                        <li id="pwLower" class="invalid">Lowercase letter</li>
+                        <li id="pwNumber" class="invalid">Number</li>
+                        <li id="pwSpecial" class="invalid">Special character: !,@,#,$,%,^,&,*</li>
+                    </ul>
+                </div>
+
+                <div class="form-row">
                     <label for="confirm_password">Confirm password:</label>
-                    <input class="error" type="password" id="confirm_password" name="confirm_password" placeholder="8-20 characters*" minlength="8" maxlength="20" required>
+                    <input class="invalid" type="password" id="confirm_password" name="confirm_password" placeholder="8-20 characters*" required>
                 </div>
-
-                <div class="confirmation">
+<!-- 
+                <div class="form-row" id="confirm">
                     <input type="checkbox" id="confirmation" name="confirmation">
                     <label for="confirmation">I promise to always eat my crust</label>
+                </div> -->
+
+                <div class="form-row" id="confirm">
+                    <label class="checkClass" for="confirmation">
+                        <input type="checkbox" id="confirmation" name="confirmation">
+                        I promise to always eat my crust
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
 
-                <button type="submit">Create Sandwich</button>
-
-                <div class="logIn">
-                    <p>Already have an account? <b>Log in</b></p>
+                <div class="form-row button">
+                    <button type="submit">Create Sandwich</button>
                 </div>
-
-                </fieldset>
             </form>
         </div>
 
     </div>
 
+    <footer>
+        <a href="https://github.com/kailixie"><ion-icon name="logo-github"></ion-icon> Made by KX </a>
+    </footer>
     
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 
-<footer>
-    Made by KX
-</footer>
+
 
 </html>

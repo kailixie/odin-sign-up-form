@@ -49,106 +49,402 @@ table {
 
 /* End Meyer Reset CSS */
 
-
+/* --color-one: #420039;
+--color-two: #7a1c4b;
+--color-three: #f1f2da;
+--color-four: #ba5044;
+--color-five: #1b0326;
+--color-six: #734b5e; */
+/* --color-three: #D6D6B1; */
 
 :root {
-    --primary-color: #456;
-    --secondary-color: rgb(22, 43, 59);
-    --main-font: 'Varela Round', sans-serif;
-    --speech-font: 'VT323', monospace;
+    --color-one: #cf492c;
+    --color-two: #e3884e;
+    --color-three: #f1f2da;
+    --color-four: #ba5044;
+    --color-five: #e36433;
+    --color-six: #923f36;
+    --main-font: 'VT323', monospace;
+    --second-font: 'Source Code Pro', monospace;
 }
 
 html {
     height: 100%;
+    background-color: var(--color-three);
 }
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* letter-spacing: 0.05em; */
 }
 
 body {
     height: 100%;
-    color: var(--primary-color, gray);
-    display: block;
-    margin: 0;
-    padding: 0;
+    color: var(--color-six);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main {
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 3rem;
-    width: 1000px;
-    /* height: auto; */
-    padding: 10px;
-    /* border-radius: 100px; */
-    box-shadow: 0 0 12px -2px rgb(22, 43, 59);
+    /* margin-right: auto; */
+    /* margin-left: auto; */
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 900px;
+    height:fit-content;
+    padding-top: 15px;
+    border-radius: 100px;
+    /* box-shadow: 0 0 12px -2px var(--color-three); */
+    /* background-color: var(--color-three); */
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: column; */
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .left {
-    /* border-color: var(--secondary-color, darkblue); */
-    /* background-color: #456; */
-    display: flex;
-    flex: 1;
+    /* flex: 1; */
+    align-items: center;
+    justify-content: space-evenly;
     /* padding-left: 15px; */
     /* padding-right: 15px; */
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.kitchen {
     position: relative;
+    /* display: flex; */
+    border-radius: 50%;
+    width: 400px;
+    height: 360px;
+
 }
 
 canvas {
-    /* border: 1px solid black; */
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     position: absolute;
+    z-index: 1;
+    flex: 1;
     top: 0;
     left: 0;
 }
 
-.kitchen {
-    /* position: absolute; */
+.kitchen-bg {
+    box-shadow: 0 0 12px -2px var(--color-four);
+    position: absolute;
+    border-radius: 50%;
+    flex: 1;
     top: 0;
     left: 0;
+    z-index: 0;
+}
+
+.logIn {
+    margin-top: 15px;
+    font-family: var(--second-font);
+}
+
+.logIn span {
+    font-weight: bold;
+}
+
+span > a {
+    text-decoration: none;
+    color: var(--color-six);
+}
+
+span > a:visited {
+    text-decoration: none;
+    color: var(--color-six);
 }
 
 .right {
-    /* padding-left: 15px;
-    padding-right: 15px; */
+    margin-left: 20px;
+    /* width: 100%; */
+    /* margin-right: auto; */
     flex: 1;
-    /* padding-top: 20px; */
+    padding-top: 10px;
 }
 
-legend {
-    font-weight: bold;
-    font-size: large;
+#formTitle {
+    /* font-weight: bold; */
+    font-family: var(--main-font);
+    font-size: 43px;
+    width: 90%;
+    text-align: center;
 }
 
 form {
-    line-height: 1.8;
-    font-family: var(--main-family);
+    font-family: var(--second-font);
 }
 
-input:invalid {
-    border-color: darkorange;
+.form-row {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: column wrap;
+}
+
+.form-row label {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.form-row select {
+    width: 90%;
+    padding: 5px;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: var(--second-font);
+    -webkit-appearance: none;
+}
+
+.form-row input[type='text'],
+.form-row input[type='email'],
+.form-row input[type='password'] {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    width: 90%;
+    padding: 7px;
+    font-size: 14px;
+    font-family: var(--second-font);
+}
+
+.form-row input[type='text']:user-invalid,
+.form-row input[type='email']:user-invalid,
+.form-row input[type='password']:user-invalid {
+    border: 1px solid #D55C5F;
+    color: #D55C5F;
+    box-shadow: none;
+}
+
+.form-row input[type='date'] {
+    background-color: #FFFFFF;
+    color: grey;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    width: 90%;
+    padding: 7px;
+    font-size: 14px;
+    font-family: var(--second-font);
+}
+
+.form-row.passwordRow {
+    margin-bottom: 5px;
+}
+
+#passwordMessage {
+    font-family: var(--second-font);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#passwordRequires {
+    display: none;
+}
+
+li {
+    text-indent: 10px;
+}
+
+.valid {
+    color: darkolivegreen;
+}
+
+.valid::before {
+    position: relative;
+    left: -5px;
+    content: '✓';
+}
+
+.invalid::before {
+    position: relative;
+    left: -5px;
+    content: '✗';
+}
+
+
+/* #confirm {
+    display: block;
+    position: relative;
+    text-indent: -15px;
+    padding-left: 15px;
+} */
+
+/* .form-row input[type='checkbox'] {
+    padding: 0;
+    margin: 0;
+    width: 15px;
+    height: 15px;
+    top: -1px;
+    vertical-align: bottom;
+    position: relative;
+} */
+
+/* .form-row input[type='checkbox']:checked {
+    background-color: var(--color-one);
+} */
+
+
+.checkClass {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    appearance: none;
+}
+
+.checkClass input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #FFFFFF;
+}
+
+.checkClass:hover input ~ .checkmark {
+    background-color: var(--color-four);
+}
+
+.checkClass input:checked ~ .checkmark {
+    background-color: var(--color-one);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkClass input:checked ~ .checkmark::after {
+    display: block;
+}
+
+.checkClass .checkmark:after {
+    left: 4px;
+    top: 0px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+.form-row button{
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--color-three);
+    background-color: var(--color-one);
+    font-family: var(--second-font);
+    border: none;
+    width: 90%;
+    border-radius: 3px;
+    padding: 10px 40px;
+    cursor: pointer; 
+    margin-bottom: 15px;
+}
+
+.form-row button:hover {
+    background-color: var(--color-four);
+}
+
+.form-row button:active {
+    background-color: var(--color-two);
 }
 
 footer {
-    background-color: var(--secondary-color);
-    color: whitesmoke;
+    background-color: var(--color-four);
+    color: var(--color-three);
     text-align: center;
-    font-family: var(--main-family);
-    padding-top: 10px;
-    padding-bottom: 10px;
+    font-family: var(--second-font);
+    font-size: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    box-shadow: 0 0 12px -2px rgb(22, 43, 59);
+    box-shadow: 0 0 12px -2px var(--color-three);
     margin-bottom: 10px;
+    display: block;
+}
+
+ion-icon {
+    font-size: 15px;
+    position: relative;
+    top: 3px;
+}
+
+footer > a {
+    text-decoration: none;
+    color: var(--color-three);
+}
+
+footer > a:visited {
+    text-decoration: none;
+    color: var(--color-three);
+}
+
+@media only screen and (min-width: 961px) {
+    
+    .form-row {
+        flex-direction: row;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .form-row label {
+        text-align: right;
+        margin-top: 7px;
+        padding-right: 13px;
+    }
+
+    .form-row input[type='text'],
+    .form-row input[type='email'],
+    .form-row input[type='password'], 
+    .form-row select,
+    .form-row textarea {
+        width: 250px;
+        height: initial;
+    }
+
+    ul {
+        margin-top: 0;
+        width: 250px;
+        text-align: left;
+    }
+
+    #confirm {
+        margin-left: 120px;
+        width: auto;
+    }
+
+    .form-row input[type='date'] {
+        width: 250px;
+        height: initial;
+    }
 }
