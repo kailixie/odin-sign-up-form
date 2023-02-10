@@ -70,13 +70,6 @@ const speech = async () => {
 const birthday = document.getElementById('birthday');
 birthday.max = new Date().toLocaleDateString('en-ca');
 
-// Test password is 8-16 characters, with at least a symbol, upper and lower case
-// letter, and a number
-// function validatePassword(password) {
-//     const regularExpression = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8, 16}$/;
-//     return regularExpression.text(password);
-// }
-
 const passwordInput = document.getElementById('password');
 
 passwordInput.onfocus = function() {
@@ -133,3 +126,39 @@ function checkNumber(text) {
 function checkSpecial(text) {
     return /[!@#$%^&*]/g.test(text);
 }
+
+const confirmPassword = document.getElementById('confirm_password');
+
+function checkConfirmPassword () {
+    if (passwordInput.value != confirmPassword.value) {
+        confirmPassword.setCustomValidity("Passwords don't match");
+    }
+}
+
+confirmPassword.onkeyup = checkConfirmPassword;
+
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#password');
+
+togglePassword.addEventListener('click', (e) => {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    confirmPassword.setAttribute('type', type);
+    const name = togglePassword.getAttribute('name') === 'eye-off-outline' ? 'eye-outline' : 'eye-off-outline';
+    togglePassword.setAttribute('name', name);
+})
+
+const modal = document.getElementById('toastModal');
+const span = document.getElementsByClassName('close')[0];
+
+span.onclick = () => modal.style.display = "none";
+
+window.onclick = (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+}
+
+const createBtn = document.getElementById('createBtn');
+
+createBtn.addEventListener('click', () => modal.style.display = "block");

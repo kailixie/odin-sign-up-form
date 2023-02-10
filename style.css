@@ -77,7 +77,6 @@ html {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* letter-spacing: 0.05em; */
 }
 
 body {
@@ -89,16 +88,12 @@ body {
 }
 
 .main {
-    /* margin-right: auto; */
-    /* margin-left: auto; */
     margin-top: auto;
     margin-bottom: auto;
     max-width: 900px;
     height:fit-content;
     padding-top: 15px;
     border-radius: 100px;
-    /* box-shadow: 0 0 12px -2px var(--color-three); */
-    /* background-color: var(--color-three); */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -106,18 +101,14 @@ body {
 }
 
 .left {
-    /* flex: 1; */
     align-items: center;
     justify-content: space-evenly;
-    /* padding-left: 15px; */
-    /* padding-right: 15px; */
     padding-bottom: 15px;
     text-align: center;
 }
 
 .kitchen {
     position: relative;
-    /* display: flex; */
     border-radius: 50%;
     width: 400px;
     height: 360px;
@@ -148,10 +139,13 @@ canvas {
 
 .logIn {
     margin-top: 15px;
-    font-family: var(--second-font);
+    font-family: var(--main-font);
+    font-size: 17px;
+    letter-spacing: 0.2ch;
 }
 
 .logIn span {
+    font-family: var(--main-font);
     font-weight: bold;
 }
 
@@ -167,14 +161,11 @@ span > a:visited {
 
 .right {
     margin-left: 20px;
-    /* width: 100%; */
-    /* margin-right: auto; */
     flex: 1;
     padding-top: 10px;
 }
 
 #formTitle {
-    /* font-weight: bold; */
     font-family: var(--main-font);
     font-size: 43px;
     width: 90%;
@@ -204,6 +195,8 @@ form {
     border-radius: 3px;
     font-size: 14px;
     font-family: var(--second-font);
+    font-weight: bold;
+    color: rgb(75, 75, 75);
     -webkit-appearance: none;
 }
 
@@ -212,6 +205,7 @@ form {
 .form-row input[type='password'] {
     background-color: #FFFFFF;
     border: 1px solid #D6D9DC;
+    font-weight: bold;
     border-radius: 3px;
     width: 90%;
     padding: 7px;
@@ -229,7 +223,6 @@ form {
 
 .form-row input[type='date'] {
     background-color: #FFFFFF;
-    color: grey;
     border: 1px solid #D6D9DC;
     border-radius: 3px;
     width: 90%;
@@ -240,6 +233,16 @@ form {
 
 .form-row.passwordRow {
     margin-bottom: 5px;
+    position: relative;
+}
+
+form ion-icon {
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    padding: 7px;
+    align-self: flex-end;
+    margin-right: 50px;
 }
 
 #passwordMessage {
@@ -272,29 +275,6 @@ li {
     content: '✗';
 }
 
-
-/* #confirm {
-    display: block;
-    position: relative;
-    text-indent: -15px;
-    padding-left: 15px;
-} */
-
-/* .form-row input[type='checkbox'] {
-    padding: 0;
-    margin: 0;
-    width: 15px;
-    height: 15px;
-    top: -1px;
-    vertical-align: bottom;
-    position: relative;
-} */
-
-/* .form-row input[type='checkbox']:checked {
-    background-color: var(--color-one);
-} */
-
-
 .checkClass {
     display: block;
     position: relative;
@@ -321,6 +301,8 @@ li {
     height: 15px;
     width: 15px;
     background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
 }
 
 .checkClass:hover input ~ .checkmark {
@@ -347,7 +329,7 @@ li {
     width: 4px;
     height: 9px;
     border: solid white;
-    border-width: 0 3px 3px 0;
+    border-width: 0 2px 2px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
@@ -380,7 +362,7 @@ footer {
     background-color: var(--color-four);
     color: var(--color-three);
     text-align: center;
-    font-family: var(--second-font);
+    font-family: var(--main-font);
     font-size: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -393,8 +375,8 @@ footer {
     display: block;
 }
 
-ion-icon {
-    font-size: 15px;
+footer ion-icon {
+    font-size: 16px;
     position: relative;
     top: 3px;
 }
@@ -408,6 +390,39 @@ footer > a:visited {
     text-decoration: none;
     color: var(--color-three);
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(227,136,78);
+    background-color: rgba(227,136,78,0.75);
+}
+
+.modalContent {
+    display: flex;
+    margin: auto;
+    max-width: 400px;
+    background-color: rgb(227,136,78);
+    border-radius: 50px;
+    padding: 30px;
+    font-size: 30px;
+    font-family: var(--main-font);
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 @media only screen and (min-width: 961px) {
     
@@ -430,6 +445,15 @@ footer > a:visited {
     .form-row textarea {
         width: 250px;
         height: initial;
+    }
+
+    form ion-icon {
+        font-size: 20px;
+        cursor: pointer;
+        position: absolute;
+        padding: 10px;
+        align-self: flex-end;
+        margin-right: 0px;
     }
 
     ul {

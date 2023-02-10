@@ -25,14 +25,14 @@
             </div>
 
             <div class="logIn">
-                <p>Already have an account? <span><a href="https://www.youtube.com/watch?v=XdM6c4juY1g">Log in...</a></span></p>
+                <p>Already have an account? <span><a href="https://www.youtube.com/watch?v=XdM6c4juY1g">Log in</a></span></p>
             </div>
         </div>
         
         <div class="right">
             <form action="#" method="post">
                 <div class="form-row header">
-                    <p id="formTitle">SIGN UP FOR TASTY TIMES!</p>
+                    <p id="formTitle">SIGN UP FOR TASTY FUN!</p>
                 </div>
                 <div class="form-row">
                     <label for="bread_choice">Select Bread:</label>
@@ -47,7 +47,7 @@
                 
                 <div class="form-row">
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" placeholder="sandwichthief*" required>
+                    <input type="text" id="username" name="username" placeholder="e.g. sandwichthief *" required>
                 </div>
 
                 <div class="form-row">
@@ -57,14 +57,14 @@
 
                 <div class="form-row">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="tasty@bread.com" required>
+                    <input type="email" id="email" name="email" placeholder="e.g. endless@snacks.com *" required>
 
                 </div>
     
                 <div class="form-row passwordRow">
                     <label for="password">Password:</label>
-                    <input class="invalid" type="password" id="password" name="password" placeholder="8-20 characters*" pattern="(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8, 16}" onkeyup=getPassword() required>
-
+                    <input class="invalid" type="password" id="password" name="password" placeholder="8-20 characters *" pattern="(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8, 16}" onkeyup=getPassword() required>
+                    <ion-icon class="bi-eye-off" id="togglePassword" name="eye-off-outline"></ion-icon>
                 </div>
 
                 <div class="form-row" id="passwordMessage">
@@ -79,13 +79,8 @@
 
                 <div class="form-row">
                     <label for="confirm_password">Confirm password:</label>
-                    <input class="invalid" type="password" id="confirm_password" name="confirm_password" placeholder="8-20 characters*" required>
+                    <input class="invalid" type="password" id="confirm_password" name="confirm_password" placeholder="confirm password *" required>
                 </div>
-<!-- 
-                <div class="form-row" id="confirm">
-                    <input type="checkbox" id="confirmation" name="confirmation">
-                    <label for="confirmation">I promise to always eat my crust</label>
-                </div> -->
 
                 <div class="form-row" id="confirm">
                     <label class="checkClass" for="confirmation">
@@ -96,15 +91,24 @@
                 </div>
 
                 <div class="form-row button">
-                    <button type="submit">Create Sandwich</button>
+                    <button type="button" id="createBtn">Create Sandwich</button>
                 </div>
             </form>
+
+            <div class="modal" id="toastModal">
+                <div class="modalContent">
+                    <span class="close"></span>
+                    <img src="img/sad-toaster.png" alt="pixel drawing of sad toaster">
+                    <p>Oh no, we're out of bread! <br> Try again later!</p>
+                </div>
+            </div>
+
         </div>
 
     </div>
 
     <footer>
-        <a href="https://github.com/kailixie"><ion-icon name="logo-github"></ion-icon> Made by KX </a>
+        <a href="https://github.com/kailixie"><ion-icon name="logo-github"></ion-icon> Made by KaiLi </a>
     </footer>
     
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
